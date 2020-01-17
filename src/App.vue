@@ -16,7 +16,7 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/ponuda">Ponuda</router-link>
           </li>
-          <li class="nav-item">
+          <li v-if="$store.state.logged=='admin@admin.com'" class="nav-item">
             <router-link class="nav-link" to="/narudzbe">Narudzbe</router-link>
           </li>
           <li>

@@ -62,8 +62,13 @@ export default {
     }
   },
     methods:{
-        citaj(){
-            baza.collection('narudzbe')
+        
+        posalji(id){
+            baza.collection('narudzbe').doc(id).delete()
+        }
+    },
+    created() {
+        baza.collection('narudzbe')
             .onSnapshot(snapshot => {
                 snapshot.docChanges().forEach(change => {
 
@@ -80,13 +85,6 @@ export default {
                 } 
                 });
             })
-        },
-        posalji(id){
-            baza.collection('narudzbe').doc(id).delete()
-        }
-    },
-    created() {
-        this.citaj()
     },
 }
 </script>

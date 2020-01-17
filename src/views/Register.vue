@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <div v-if="error">{{error}}</div>
+      <div v-if="greska">{{greska}}</div>
     <form>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -29,16 +29,16 @@ export default {
       email:'',
       password:'',
       passwordRepeated:'',
-      error:''
+      greska:''
     }
   },
   methods:{
     register(){
         console.log("sadas")
         if(this.password==this.passwordRepeated){
-            firebase.auth().createUserWithEmailAndPassword(this.email, this.password).catch(error => {
+            firebase.auth().createUserWithEmailAndPassword(this.email, this.password).catch(greska => {
             // Handle Errors here.
-            this.error = error.message;
+            this.greska = greska.message;
             // ...
         });
         }

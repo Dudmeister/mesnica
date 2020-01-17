@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Ponuda from '../views/Ponuda.vue'
@@ -11,11 +10,7 @@ import Kosarica from '../shop/Kosarica.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
+  
   {
     path: '/register',
     name: 'register',
@@ -27,7 +22,7 @@ const routes = [
     component: Login
   },
   {
-    path: '/ponuda',
+    path: '/',
     name: 'ponuda',
     component: Ponuda
   },

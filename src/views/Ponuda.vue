@@ -40,15 +40,13 @@ export default {
         baza.collection('proizvodi')
           .onSnapshot(snapshot =>{
             snapshot.docChanges().forEach( change =>{
-              
-              //u slučaju da je element dodan renderamo ga na stranici
+
               if (change.type === "added"){
                 let doc = change.doc
                 let proizvod = doc.data()
                 proizvod.id = doc.id
                 this.proizvodi.push(proizvod)
               }
-              //u slučaju da je izbrisan brišemo ga stranice
               else if(change.type === "removed"){
                 this.proizvodi = this.proizvodi.filter(proizvodi => {
                   return proizvodi.id != change.doc.id
@@ -65,7 +63,6 @@ export default {
         uKosaricu(proizvod){
             proizvod.kolicina = 1
             this.$store.commit("addToCart", proizvod)
-            console.log(this.$store.state.kosarica)
         }
     }
 }
