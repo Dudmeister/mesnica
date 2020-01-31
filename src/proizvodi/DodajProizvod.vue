@@ -130,3 +130,9 @@ export default {
     }
 }
 </script>
+
+<style>
+.naslov{
+    color:white;
+}
+</style>

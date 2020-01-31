@@ -14,14 +14,16 @@
             <router-link class="nav-link" to="/register">Register</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/ponuda">Ponuda</router-link>
+            <router-link class="nav-link" to="/">Ponuda</router-link>
           </li>
-          <li v-if="$store.state.logged=='admin@admin.com'" class="nav-item">
+          <li v-if="$store.state.daliJePrijavljeno=='admin@admin.com'" class="nav-item">
             <router-link class="nav-link" to="/narudzbe">Narudzbe</router-link>
           </li>
-          <li>
-            <button @click="odjava">Odjava</button>
+          <ul class="lista">
+            <li>
+            <button class="odjava" @click="odjava">Odjava</button>
           </li>
+          </ul>
         </ul>
       </div>
     </nav>
@@ -35,7 +37,9 @@ export default {
   methods:{
     odjava(){
       firebase.auth().signOut().then(() => {
-        this.$store.commit("postaviLoged", false)
+        this.$store.commit("logiranje", false)
+        this.$store.commit("logiranjeAdmina", false)
+        this.$router.push('/login')
       })
     }
   }
@@ -43,12 +47,16 @@ export default {
 </script>
 
 <style lang="scss">
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100vh;
+  background-color: rgba(250, 31, 31, 0.911);
+  overflow: auto;
 }
 
 #nav {
@@ -63,4 +71,31 @@ export default {
     }
   }
 }
+.odjava{
+  border-radius: 25px;
+    padding: 8px;
+    background-color:rgba(238, 51, 51);
+    color: white;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.lista{
+  position: absolute;
+  right:0;
+  list-style-type:none;
+  padding-right: 16px;
+  
+}
+
+.collapse{
+  padding: 0 25px;
+}
+
+.nav-link{
+  margin: 0 20px;
+  font-size: 20px;
+}
+
 </style>

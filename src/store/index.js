@@ -6,15 +6,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    logged:'',
+    daliJePrijavljeno:'',
+    daliJeAdmin:'',
     kosarica:[]
   },
   getters:{
     
   },
   mutations: {
-    postaviLoged(state, status) {
-      state.logged = status;
+    logiranje(state, status) {
+      state.daliJePrijavljeno = status;
+    },
+    logiranjeAdmina(state, status) {
+      state.daliJeAdmin = status;
     },
 
     addToCart(state, proizvod){
@@ -24,7 +28,7 @@ export default new Vuex.Store({
       }else{
         for( let i=0; i<state.kosarica.length; i++){
 
-          if(state.kosarica[i].naziv==proizvod.naziv){
+          if(state.kosarica[i].nazivMesa==proizvod.nazivMesa && state.kosarica[i].vrstaMesa==proizvod.vrstaMesa){
             naden = true
             state.kosarica[i].kolicina++
           }
