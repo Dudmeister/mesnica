@@ -12,7 +12,7 @@ Firebase, HTML, Bootstrap, JavaScript, Vue
 ```
 ## Opis aplikacije:
 ```
-Aplikacija služi za jednu mesnicu. Možemo se logirati kao admin i kao običan user. Sastoji se od logina, registera, ponude proizvoda i košarice ( te narudžbe, ali kada smo logirani kao admin). Napomena, za završetak stranice potrebno je urediti route guardove i urediti stranicu pomoću CSS-a 
+Aplikacija služi za jednu mesnicu. Možemo se logirati kao admin i kao običan user. Sastoji se od logina, registera, ponude proizvoda i košarice ( te narudžbe, ali kada smo logirani kao admin).
 ```
 
 
